@@ -1,0 +1,2 @@
+Circle_Color: 255,0,51
+Background: Icons/strzelnica1.jpg
