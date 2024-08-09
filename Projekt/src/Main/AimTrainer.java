@@ -54,6 +54,7 @@ public class AimTrainer extends JFrame {
     public void readProfiles() {
             Path path = Paths.get("profiles.txt");
             File file = new File("profiles.txt");
+            ArrayList<String> lines = new ArrayList<>();
 
             //tworzenie nowego pliku z profilami jeśli go brakuje
             if(!(Files.exists(path))) {
@@ -68,10 +69,10 @@ public class AimTrainer extends JFrame {
         if(file.length()<10) {
             try {
                 FileWriter myWriter = new FileWriter("profiles.txt");
-                myWriter.write("1, Profile 1\n");
-                myWriter.write("2, Profile 2\n");
-                myWriter.write("3, Profile 3\n");
-                myWriter.write("4, Profile 4\n");
+                myWriter.write("1, Profil 1\n");
+                myWriter.write("2, Profil 2\n");
+                myWriter.write("3, Profil 3\n");
+                myWriter.write("4, Profil 4\n");
                 myWriter.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -97,8 +98,10 @@ public class AimTrainer extends JFrame {
 
                     try {
                         profiles.add(new Profil(Integer.parseInt(parts[0]), parts[1]));
+                        lines.add(line);
                     } catch (NumberFormatException e) {
                         profiles.add(new Profil(i, parts[1]));
+                        lines.add(i+", "+parts[1]);
                     }
 
                 }
@@ -106,7 +109,19 @@ public class AimTrainer extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
+
+            try {
+                FileWriter myWriter = new FileWriter("profiles.txt");
+                for (String l : lines) {
+                    myWriter.write(l+"\n");
+                }
+                myWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
 
 
 
