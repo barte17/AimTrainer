@@ -35,12 +35,12 @@ public class AimTrainer extends JFrame {
     }
 
 
-    //funkcja do zmiany panelu w frame
+    //funkcja do zmiany panelu w frame po wybraniu profilu
     public void showView(JPanel panel) {
-        // tutaj zmienic wielkosc okna
         firstPanel.removeAll();
         setContentPane(panel);
 
+        //ustawienie proporcji okna wedle wielkości ekranu użytkownika
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int frameHeight =(int) (screenSize.height*0.7);
         int frameWidth = (int) (screenSize.width*0.65);
@@ -48,14 +48,14 @@ public class AimTrainer extends JFrame {
         setSize(frameWidth,frameHeight);
         setLocationRelativeTo(null);
 
-        invalidate();
-        validate();
+        revalidate();
     }
 
     public void readProfiles() {
             Path path = Paths.get("profiles.txt");
             File file = new File("profiles.txt");
 
+            //tworzenie nowego pliku z profilami jeśli go brakuje
             if(!(Files.exists(path))) {
                 try {
                     System.out.println("Brak pliku, tworzenie nowego");
@@ -77,18 +77,38 @@ public class AimTrainer extends JFrame {
                 throw new RuntimeException(e);
             }
         }
+
+        //pobieranie profili ze sprawdzaniem poprawności formatu (<ID>, <NAZWA PROFILU>)
         try {
             Scanner scanner = new Scanner(path);
-            while(scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String parts[] = line.split(", ");
-                profiles.add(new Profil(Integer.parseInt(parts[0]), parts[1]));
+            for (int i = 1; i <= 4; i++) {
+                if(scanner.hasNextLine()) {
+                    String line = scanner.nextLine();
+
+                    if (!line.contains(", ")) {
+                        line = i+", Profil "+i;
+                    }
+
+                    String parts[] = line.split(", ");
+                    if(parts.length != 2) {
+                        line = i+", Profil "+i;
+                        parts = line.split(", ");
+                    }
+
+                    try {
+                        profiles.add(new Profil(Integer.parseInt(parts[0]), parts[1]));
+                    } catch (NumberFormatException e) {
+                        profiles.add(new Profil(i, parts[1]));
+                    }
+
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
+
+
 
     public ArrayList<Profil> getProfiles() {
         return this.profiles;

@@ -1,7 +1,6 @@
 package FirstPanel;
 
 import Main.AimTrainer;
-
 import javax.swing.*;
 import java.awt.*;
 

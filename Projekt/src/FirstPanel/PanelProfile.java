@@ -99,7 +99,6 @@ public class PanelProfile extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object o = e.getSource();
         if(o==profil1) {
-            int id = profiles.get(0).getId();
             aimTrainer.showView(new MainMenu(profiles.get(0)));
         }
         if(o==profil2) {
