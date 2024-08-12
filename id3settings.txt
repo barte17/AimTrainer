@@ -1,2 +1,2 @@
-Circle_Color: 255,0,51
-Background: Icons/strzelnica1.jpg
+Circle_Color: 0,0,255
+Background: Icons/strzelec2.jpg

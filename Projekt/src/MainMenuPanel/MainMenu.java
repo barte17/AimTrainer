@@ -47,6 +47,7 @@ public class MainMenu extends JPanel {
 
     public MainMenu(Profil profil) {
         setLayout(new BorderLayout());
+        frame = (JFrame) SwingUtilities.getWindowAncestor(MainMenu.this);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -57,6 +58,7 @@ public class MainMenu extends JPanel {
         settings = new Settings(profil);
         this.color = settings.getCircleColor();
         this.pathGameBackground = settings.getBackgroundPath();
+
 
 
         // Inicjalizacja przycisków
@@ -118,6 +120,9 @@ public class MainMenu extends JPanel {
                     gameBackgroundImage = gameBackgroundImage.getScaledInstance((int)screenWidth,(int)screenHeight,Image.SCALE_DEFAULT);
                 } catch (IOException ee) {
                     throw new RuntimeException(ee);
+                } catch (IllegalArgumentException ex ) {
+                    JOptionPane.showMessageDialog(frame, "Brakuje pliku "+pathGameBackground);
+                    System.exit(0);
                 }
 
                 if(TRYB_GRY.equals("DOMYŚLNY")) {

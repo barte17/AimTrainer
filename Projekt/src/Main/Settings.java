@@ -1,5 +1,8 @@
 package Main;
 
+import MainMenuPanel.MainMenu;
+
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,6 +16,7 @@ import java.util.Scanner;
 public class Settings {
     Color circleColor;
     String backgroundPath;
+    JFrame frame;
 
     public Settings(Profil profil) {
         String idSettings = "id"+String.valueOf(profil.getId())+"settings";
@@ -63,13 +67,9 @@ public class Settings {
                 this.backgroundPath = "Icons/sniper2.png";
             }
 
-
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 

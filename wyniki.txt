@@ -37,3 +37,9 @@
 1, qqq, Domyślny, ŁATWY, -3
 4, Antoni, Precyzja, ŁATWY, 1108
 2, adam, Domyślny, ŁATWY, 63
+1, Profile 5, Domyślny, ŁATWY, -3
+1, Profile 5, Domyślny, ŁATWY, -3
+2, Profil 2, Domyślny, ŁATWY, -3
+1, Hubert, Domyślny, ŁATWY, 0
+3, Joanna, Domyślny, ŁATWY, 4
+3, Joanna, Precyzja, TRUDNY, 189
