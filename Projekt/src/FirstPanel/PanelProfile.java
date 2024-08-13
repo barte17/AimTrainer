@@ -97,6 +97,7 @@ public class PanelProfile extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //przejscie do menu głównego po wybraniu profilu
         Object o = e.getSource();
         if(o==profil1) {
             aimTrainer.showView(new MainMenu(profiles.get(0)));
@@ -110,6 +111,7 @@ public class PanelProfile extends JPanel implements ActionListener {
         if(o==profil4) {
             aimTrainer.showView(new MainMenu(profiles.get(3)));
         }
+        //edycja nazwy profilu
         if(o==editProfileButton1) {
             changeProfileName = new ChangeProfileName(aimTrainer, profiles.get(0));
             profiles.set(0,changeProfileName.getNewProfileName());
@@ -137,6 +139,7 @@ public class PanelProfile extends JPanel implements ActionListener {
     }
 
     public void setLabels() {
+        //ustawienie labeli po wczytaniu nazw z pliku profiles.txt
         Font f = new Font(Font.SANS_SERIF, Font.BOLD, 14);
         lProfil1 = new JLabel(profiles.get(0).getName(), SwingConstants.CENTER);
         lProfil1.setSize(105,25);
@@ -165,6 +168,7 @@ public class PanelProfile extends JPanel implements ActionListener {
     }
 
     public void refreshLabels() {
+        //aktualizacja labeli po edycji profilu
         lProfil1.setText(profiles.get(0).getName());
         lProfil2.setText(profiles.get(1).getName());
         lProfil3.setText(profiles.get(2).getName());
@@ -175,6 +179,7 @@ public class PanelProfile extends JPanel implements ActionListener {
         Path path = Paths.get("profiles.txt");
         File file = new File("profiles.txt");
 
+        //jeśli niema pliku, tworzony jest nowy
         if (!(Files.exists(path))) {
             try {
                 System.out.println("Brak pliku, tworzenie nowego");

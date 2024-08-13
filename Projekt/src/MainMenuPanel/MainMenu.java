@@ -47,8 +47,9 @@ public class MainMenu extends JPanel {
 
     public MainMenu(Profil profil) {
         setLayout(new BorderLayout());
+        //pobranie okna aplikacji
         frame = (JFrame) SwingUtilities.getWindowAncestor(MainMenu.this);
-
+        //pobranie wymiarów ekranu
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         screenWidth = screenSize.getWidth();
@@ -125,6 +126,7 @@ public class MainMenu extends JPanel {
                     System.exit(0);
                 }
 
+                //włączenie okna gry w zależności od wybranego trybu
                 if(TRYB_GRY.equals("DOMYŚLNY")) {
                     new GameDefault(profil, difficulty, color, gameBackgroundImage);
                 } else if(TRYB_GRY.equals("PRECYZJA")) {

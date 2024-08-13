@@ -68,7 +68,7 @@ public class UstawieniaFrame extends JDialog {
         zmienTlo.setForeground(Color.WHITE);
         zmienTlo.setFont(new Font("Comic Sans MS",Font.BOLD,28));
 
-        zmienKolo = new JLabel("Zmień kolor kółka");
+        zmienKolo = new JLabel("Zmień kolor celu");
         zmienKolo.setForeground(Color.WHITE);
         zmienKolo.setFont(new Font("Comic Sans MS",Font.BOLD,28));
 

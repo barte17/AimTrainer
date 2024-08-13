@@ -17,7 +17,7 @@ public class ChangeProfileName extends JDialog implements ActionListener {
     public ChangeProfileName(JFrame frame, Profil profil) {
         super(frame,"Zmiana nazwy profilu", true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(320,190);
+        setSize(320,185);
         setBackground(Color.lightGray);
         this.profil = profil;
 
