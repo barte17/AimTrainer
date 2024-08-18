@@ -23,6 +23,7 @@ public class Target {
         this.BALL_SIZE = BALL_SIZE;
     }
 
+    //sprawdzenie, czy kliknięcie znajduje się w obiekcie, zwraca odległość od srodka
     public boolean contains(int x, int y) {
         // Obliczamy odległość między punktem (x, y) a środkiem koła
         double distance = Math.sqrt(Math.pow(x - (this.x + BALL_SIZE / 2), 2) + Math.pow(y - (this.y + BALL_SIZE / 2), 2));

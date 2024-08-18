@@ -11,49 +11,39 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class GameDefault extends JFrame {
-    Profil profil;
-    String difficulty;
-    JPanel panelGra, panelGora, panelGlowny;
+public class GameDefault extends GameWithCircles {
 
-    private final List<Circle> circles;
+
+
+    JLabel hpLabel;
     private Timer spawnTimer;
-    private int BALL_SIZE = 50;
-
-    private int minBALL_SIZE = 45;
-    private int maxBALL_SIZE = 65;
     private int SPAWN_INTERVAL = 700;
     private int BALL_DURATION = 2000;
 
-    int width, height;
-
-    JLabel pointsLabel;
-    JLabel hpLabel;
-
-    int points = 0;
-
-    Image backgroundImage;
-
-    Color circleColor;
-
 
     public GameDefault(Profil profil, String difficulty, Color color, Image background) {
-        super("Aim Trainer");
+        super(profil,difficulty,color,background);
         this.profil = profil;
         this.difficulty = difficulty;
         this.backgroundImage = background;
-        circleColor = color;
-
+        this.circleColor = color;
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.width = screenSize.width;
         this.height = screenSize.height;
+        //powiększenie okna do maximum
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setSize(width,height);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
+
+
+
+        panelGlowny = new JPanel(new BorderLayout());
+
+
 
         if(difficulty.equals("TRUDNY")) {
             SPAWN_INTERVAL = 500;
@@ -62,9 +52,6 @@ public class GameDefault extends JFrame {
             minBALL_SIZE = 35;
             maxBALL_SIZE = 55;
         }
-
-        panelGlowny = new JPanel(new BorderLayout());
-
 
         panelGra = new JPanel() {
             @Override
@@ -78,6 +65,8 @@ public class GameDefault extends JFrame {
 
 
         };
+
+
         panelGra.setBackground(color);
         panelGra.setLayout(null);
 
@@ -128,7 +117,9 @@ public class GameDefault extends JFrame {
         setContentPane(panelGlowny);
         setVisible(true);
     }
-    private void spawnCircle() {
+    @Override
+    protected void spawnCircle() {
+
         Random random = new Random();
         BALL_SIZE = random.nextInt(minBALL_SIZE,maxBALL_SIZE);
         int x = random.nextInt(10, width - BALL_SIZE-25);
@@ -138,6 +129,7 @@ public class GameDefault extends JFrame {
         circles.add(circle);
         Rectangle circleBounds = circle.getBounds();
         panelGra.repaint(circleBounds.x, circleBounds.y, circleBounds.width, circleBounds.height);
+
 
         Timer timer = new Timer(BALL_DURATION, new ActionListener() {
             @Override

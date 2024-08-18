@@ -43,3 +43,10 @@
 1, Hubert, Domyślny, ŁATWY, 0
 3, Joanna, Domyślny, ŁATWY, 4
 3, Joanna, Precyzja, TRUDNY, 189
+4, Profil 4, Wyścig, ŁATWY, 18
+3, Joanna, Domyślny, ŁATWY, 2
+2, Profil 2, Domyślny, ŁATWY, 50
+2, Profil 2, Domyślny, ŁATWY, -1
+2, Profil 2, Domyślny, ŁATWY, -2
+2, Profil 2, Domyślny, ŁATWY, -3
+2, Profil 2, Domyślny, ŁATWY, 6

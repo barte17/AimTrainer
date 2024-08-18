@@ -38,6 +38,8 @@ public class GamePrecision extends JFrame {
         this.profil = profil;
         this.difficulty = difficulty;
         this.backgroundImage = background;
+
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.width = screenSize.width;
         this.height = screenSize.height;

@@ -21,6 +21,7 @@ public class Circle {
         this.color = color;
     }
 
+    //sprawdzenie, czy kliknięcie znajduje się w celu, zwraca odległość od srodka
     public boolean contains(int x, int y) {
         // Obliczamy odległość między punktem (x, y) a środkiem koła
         double distance = Math.sqrt(Math.pow(x - (this.x + BALL_SIZE / 2), 2) + Math.pow(y - (this.y + BALL_SIZE / 2), 2));
@@ -28,6 +29,7 @@ public class Circle {
         return distance <= BALL_SIZE / 2;
     }
 
+    //rysowanie  obiektu
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillOval(x, y, BALL_SIZE, BALL_SIZE);

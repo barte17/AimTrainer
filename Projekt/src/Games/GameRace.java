@@ -11,49 +11,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class GameRace extends JFrame {
-    Profil profil;
-    String difficulty;
-    JPanel panelGra, panelGora, panelGlowny;
+public class GameRace extends GameWithCircles {
 
-    private final List<Circle> circles;
-
-    private int BALL_SIZE = 50;
-
-    private int minBALL_SIZE = 45;
-    private int maxBALL_SIZE = 65;
-
-    int width, height;
-
-    JLabel pointsLabel;
-    JLabel timeLabel;
-
-    int points = 0;
 
     Timer timer;
-
+    JLabel timeLabel;
     int time;
 
-    Image backgroundImage;
-
-    Color circleColor;
-
     public GameRace(Profil profil, String difficulty, Color color, Image background) {
-        super("Aim Trainer");
-        this.profil = profil;
-        this.difficulty = difficulty;
-        this.backgroundImage = background;
-        this.circleColor = color;
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.width = screenSize.width;
-        this.height = screenSize.height;
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        super(profil,difficulty,color,background);
 
 
-        setSize(width,height);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
+        panelGlowny = new JPanel(new BorderLayout());
+
+
 
         if(difficulty.equals("TRUDNY")) {
             BALL_SIZE = 40;
@@ -61,7 +32,10 @@ public class GameRace extends JFrame {
             maxBALL_SIZE = 55;
         }
 
-        panelGlowny = new JPanel(new BorderLayout());
+
+
+
+
 
 
         panelGra = new JPanel() {
@@ -118,18 +92,6 @@ public class GameRace extends JFrame {
 
         setContentPane(panelGlowny);
         setVisible(true);
-    }
-    private void spawnCircle() {
-        Random random = new Random();
-        BALL_SIZE = random.nextInt(minBALL_SIZE,maxBALL_SIZE);
-        int x = random.nextInt(10, width - BALL_SIZE-25);
-        int y = random.nextInt(10, height - BALL_SIZE-60);
-
-        Circle circle = new Circle(x, y, BALL_SIZE, circleColor);
-        circles.add(circle);
-        Rectangle circleBounds = circle.getBounds();
-        panelGra.repaint(circleBounds.x, circleBounds.y, circleBounds.width, circleBounds.height);
-
     }
 
     private void startTimer() {
