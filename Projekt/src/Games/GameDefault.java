@@ -23,26 +23,6 @@ public class GameDefault extends GameWithCircles {
 
     public GameDefault(Profil profil, String difficulty, Color color, Image background) {
         super(profil,difficulty,color,background);
-        this.profil = profil;
-        this.difficulty = difficulty;
-        this.backgroundImage = background;
-        this.circleColor = color;
-
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.width = screenSize.width;
-        this.height = screenSize.height;
-        //powiększenie okna do maximum
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        setSize(width,height);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setResizable(false);
-
-
-
-        panelGlowny = new JPanel(new BorderLayout());
-
 
 
         if(difficulty.equals("TRUDNY")) {
@@ -53,52 +33,11 @@ public class GameDefault extends GameWithCircles {
             maxBALL_SIZE = 55;
         }
 
-        panelGra = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                g.drawImage(backgroundImage,0,0,this);
-                for (Circle circle : circles) {
-                    circle.draw(g);
-                }
-            }
-
-
-        };
-
-
-        panelGra.setBackground(color);
-        panelGra.setLayout(null);
-
-        panelGora = new JPanel();
-        panelGora.setBackground(new Color(240,240,240));
-        panelGora.setLayout(new BorderLayout());
-
-        // Punkty i czas
-
-        pointsLabel = new JLabel("Punkty: "+points);
-        pointsLabel.setBounds(10, 5, 100, 30);
-        panelGora.add(pointsLabel,BorderLayout.WEST);
-
-
-
+        //label z życiami
         hpLabel = new JLabel("♥♥♥");
         hpLabel.setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
         hpLabel.setBounds(width - 100, 5, 100, 30);
         panelGora.add(hpLabel,BorderLayout.EAST);
-
-
-
-        circles = new ArrayList<>();
-
-
-        spawnTimer = new Timer(SPAWN_INTERVAL, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                spawnCircle();
-            }
-        });
-        spawnTimer.start();
 
 
         panelGra.addMouseListener(new MouseAdapter() {
@@ -109,17 +48,22 @@ public class GameDefault extends GameWithCircles {
             }
         });
 
+        // generowanie celów co SPAWN_INTERVAL
+        spawnTimer = new Timer(SPAWN_INTERVAL, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                spawnCircle();
+            }
+        });
+        spawnTimer.start();
 
-        //
-        panelGlowny.add(panelGra,BorderLayout.CENTER);
-        panelGlowny.add(panelGora,BorderLayout.NORTH);
-
-        setContentPane(panelGlowny);
-        setVisible(true);
     }
+
+    //tworzenie celu
     @Override
     protected void spawnCircle() {
 
+        //różne miejsca pojawienia się piłki oraz jej wielkości
         Random random = new Random();
         BALL_SIZE = random.nextInt(minBALL_SIZE,maxBALL_SIZE);
         int x = random.nextInt(10, width - BALL_SIZE-25);
@@ -130,7 +74,7 @@ public class GameDefault extends GameWithCircles {
         Rectangle circleBounds = circle.getBounds();
         panelGra.repaint(circleBounds.x, circleBounds.y, circleBounds.width, circleBounds.height);
 
-
+        //czas trwania celu przed zniknięciem
         Timer timer = new Timer(BALL_DURATION, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,6 +89,7 @@ public class GameDefault extends GameWithCircles {
         timer.start();
     }
 
+    //czy trafiono cel podczas kliknięcia
     private void checkCircleClicked(int x, int y) {
         boolean circleHit = false;
         for (Circle circle : circles) {
@@ -162,24 +107,14 @@ public class GameDefault extends GameWithCircles {
         if(!circleHit) {
             losePoints();
         }
-
-
     }
 
-    public void updatePoints() {
-        pointsLabel.setText("Punkty: "+points);
-    }
-
+    //usuwanie jednego życia
     public String removeLastChar(String str) {
         if (str != null && str.length() > 0 && str.charAt(str.length() - 1) == '♥') {
             str = str.substring(0, str.length() - 1);
         }
         return str;
-    }
-
-    public void endScreen() {
-        setContentPane(new KoniecGryPanel(this.profil, this.points,"Domyślny",this.difficulty));
-        revalidate();
     }
 
     public void losePoints() {

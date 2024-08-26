@@ -31,6 +31,7 @@ public class GameWithCircles extends JFrame {
         this.backgroundImage = background;
         this.circleColor = color;
 
+        //pobranie rozmiarów ekranu użytkownika
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.width = screenSize.width;
         this.height = screenSize.height;
@@ -43,8 +44,40 @@ public class GameWithCircles extends JFrame {
         setResizable(false);
 
 
+        panelGlowny = new JPanel(new BorderLayout());
+        //rysowanie celów oraz tła
+        panelGra = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(backgroundImage,0,0,this);
+                for (Circle circle : circles) {
+                    circle.draw(g);
+                }
+            }
+
+
+        };
+
+        panelGra.setBackground(color);
+        panelGra.setLayout(null);
+
+        panelGora = new JPanel();
+        panelGora.setBackground(color);
+        panelGora.setBackground(new Color(240,240,240));
+        panelGora.setLayout(new BorderLayout());
+
+        pointsLabel = new JLabel("Punkty: "+points);
+        pointsLabel.setBounds(10, 5, 100, 30);
+        panelGora.add(pointsLabel,BorderLayout.WEST);
 
         circles = new ArrayList<>();
+
+        panelGlowny.add(panelGra,BorderLayout.CENTER);
+        panelGlowny.add(panelGora,BorderLayout.NORTH);
+
+        setContentPane(panelGlowny);
+        setVisible(true);
     }
 
     protected void spawnCircle() {
@@ -58,4 +91,19 @@ public class GameWithCircles extends JFrame {
         Rectangle circleBounds = circle.getBounds();
         panelGra.repaint(circleBounds.x, circleBounds.y, circleBounds.width, circleBounds.height);
     }
+
+    protected void updatePoints() {
+        pointsLabel.setText("Punkty: "+points);
+    }
+
+    protected void endScreen() {
+        setContentPane(new KoniecGryPanel(this.profil, this.points,"Domyślny",this.difficulty));
+        revalidate();
+    }
+
+
+
+
+
+
 }

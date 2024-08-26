@@ -50,3 +50,12 @@
 2, Profil 2, Domyślny, ŁATWY, -2
 2, Profil 2, Domyślny, ŁATWY, -3
 2, Profil 2, Domyślny, ŁATWY, 6
+1, Hubert, Domyślny, ŁATWY, 4
+3, Joanna, Domyślny, ŁATWY, 2
+4, Profil 4, Domyślny, ŁATWY, 8
+4, Profil 4, Domyślny, ŁATWY, -1
+4, Profil 4, Domyślny, ŁATWY, 3
+1, Hubert, Domyślny, ŁATWY, 0
+3, Joanna, Domyślny, ŁATWY, 3
+3, Joanna, Wyścig, TRUDNY, 75
+1, Hubert, Domyślny, ŁATWY, -2
