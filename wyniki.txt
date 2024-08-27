@@ -59,3 +59,6 @@
 3, Joanna, Domyślny, ŁATWY, 3
 3, Joanna, Wyścig, TRUDNY, 75
 1, Hubert, Domyślny, ŁATWY, -2
+1, Hubert, Reflex, ŁATWY, 13
+1, Hubert, Reflex, TRUDNY, -140
+1, Hubert, Reflex, TRUDNY, -124

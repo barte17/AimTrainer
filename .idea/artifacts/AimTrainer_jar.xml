@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AimTrainer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AimTrainer_jar</output-path>
+    <root id="archive" name="AimTrainer.jar">
+      <element id="module-output" name="AimTrainer" />
+    </root>
+  </artifact>
+</component>
