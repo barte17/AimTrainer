@@ -1,15 +1,11 @@
 package Games;
 import Main.Profil;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 public class GameWithCircles extends JFrame {
     protected Profil profil;
     protected String difficulty;
@@ -83,8 +79,8 @@ public class GameWithCircles extends JFrame {
     protected void spawnCircle() {
         Random random = new Random();
         BALL_SIZE = random.nextInt(minBALL_SIZE,maxBALL_SIZE);
-        int x = random.nextInt(10, width - BALL_SIZE-25);
-        int y = random.nextInt(10, height - BALL_SIZE-60);
+        int x = random.nextInt(50, (int)(width*0.80) - BALL_SIZE-25);
+        int y = random.nextInt(50, (int)(height*0.85) - BALL_SIZE-50);
 
         Circle circle = new Circle(x, y, BALL_SIZE, circleColor);
         circles.add(circle);

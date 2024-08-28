@@ -62,3 +62,8 @@
 1, Hubert, Reflex, ŁATWY, 13
 1, Hubert, Reflex, TRUDNY, -140
 1, Hubert, Reflex, TRUDNY, -124
+3, Joanna, Precyzja, ŁATWY, 549
+3, Joanna, Precyzja, TRUDNY, -144
+4, Profil 4, Precyzja, TRUDNY, 269
+1, Hubert, Precyzja, ŁATWY, -56
+1, Hubert, Precyzja, TRUDNY, 338
