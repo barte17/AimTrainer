@@ -30,12 +30,15 @@ public class GameWithTargets extends JFrame {
         this.difficulty = difficulty;
         this.backgroundImage = background;
 
+        //pobranie proporcji ekranu uzytkownika
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.width = screenSize.width;
         this.height = screenSize.height;
+        //pelny ekran dla okna
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setSize(width,height);
+        //wysrodkowanie
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
@@ -117,6 +120,7 @@ public class GameWithTargets extends JFrame {
         timer.start();
     }
 
+    //sprawdza, czy punkt klikniecia znajduje sie w obiekcie
     protected void checkCircleClicked(int x, int y) {
         boolean circleHit = false;
         for (Target target : targets) {

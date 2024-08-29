@@ -3,6 +3,8 @@ package MainMenuPanel;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +17,7 @@ public class WynikiPanel extends JDialog {
 
     Image backgroundImage = null;
 
-    JPanel panel, panelSrodek;
+    JPanel panel, panelSrodek, panelDol;
 
     JPanel panelDomyslny, panelPrecyzja,panelRefleks, panelWyscig;
 
@@ -298,10 +300,27 @@ public class WynikiPanel extends JDialog {
         panelSrodek.add(blok4,gbc);
 
 
+        panelDol = new JPanel(new GridBagLayout());
+        JButton przyciskZamknij = new JButton("Zamknij");
+        przyciskZamknij.setFont(new Font(Font.SANS_SERIF,Font.BOLD,24));
+        przyciskZamknij.setBackground(new Color(4,231,255));
+        przyciskZamknij.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+
+        gbc.insets = new Insets(0,45,22,0);
+
+        panelDol.add(przyciskZamknij,gbc);
+        panelDol.setOpaque(false);
 
 
 
         panel.add(panelSrodek, BorderLayout.CENTER);
+        panel.add(panelDol, BorderLayout.SOUTH);
         setContentPane(panel);
         setVisible(true);
     }
