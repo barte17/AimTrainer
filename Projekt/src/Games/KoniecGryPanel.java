@@ -86,8 +86,7 @@ public class KoniecGryPanel extends JPanel {
 
         try {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter("wyniki.txt", true));
-            myWriter.newLine();
-            myWriter.write(profil.getId()+", "+profil.getName()+", "+tryb+", "+difficulty+", "+points);
+            myWriter.write(profil.getId()+", "+profil.getName()+", "+tryb+", "+difficulty+", "+points+"\n");
 
             myWriter.close();
         } catch (IOException e) {

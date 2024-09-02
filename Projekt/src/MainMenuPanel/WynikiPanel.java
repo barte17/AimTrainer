@@ -83,7 +83,7 @@ public class WynikiPanel extends JDialog {
         gbc.insets = new Insets(10, 40, 70, 40); // Marginesy pomiędzy przyciskami
         gbc.anchor = GridBagConstraints.CENTER; // Wyśrodkowanie komponentów
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
 
         Font trybFont = new Font("Comic Sans MS",Font.BOLD,26);
 
@@ -134,6 +134,8 @@ public class WynikiPanel extends JDialog {
             }
             gbc2.gridy++;
         }
+
+
 
         gbc2.gridy=3;
         blok1.add(panelDomyslny,gbc2);

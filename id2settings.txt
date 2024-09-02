@@ -1,2 +1,2 @@
-Circle_Color: 255,0,0
-Background: Icons/sniper2.png
+Circle_Color: 0,255,0
+Background: Icons\strzelec2.jpg
