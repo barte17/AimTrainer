@@ -10,3 +10,5 @@ testować różnych funkcji w języku Java oraz wcześniej napisanego kodu.
 
 Pomimo, że Swing nie należy już do najczęściej używanych frameworków,
 idealnie nadaje się do nauki programowania obiektowego oraz pracy w języku Java.
+Niestety framework nie jest już rozwijany, co nieco uniemożliwia tworzenie lepszych
+wizualnie elementów w aplikacjach.
