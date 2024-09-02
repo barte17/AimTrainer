@@ -1,7 +1,0 @@
-2, Profil 2, Domyślny, ŁATWY, 1
-2, Profil 2, Domyślny, ŁATWY, 1
-2, Profil 2, Domyślny, ŁATWY, 1
-2, Profil 2, Domyślny, ŁATWY, 1
-2, Profil 2, Domyślny, ŁATWY, 1
-2, Profil 2, Domyślny, TRUDNY, 2
-2, Profil 2, Precyzja, ŁATWY, 1
