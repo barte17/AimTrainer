@@ -1,3 +1,0 @@
-1, aaa, Domyślny, ŁATWY, 4
-1, aaa, Domyślny, TRUDNY, 13
-1, aaa, Precyzja, TRUDNY, 473
