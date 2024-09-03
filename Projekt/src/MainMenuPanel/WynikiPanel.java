@@ -36,6 +36,7 @@ public class WynikiPanel extends JDialog {
         int frameWidth = (int) (screenSize.width*0.65);
         setSize(frameWidth,frameHeight);
         setLocationRelativeTo(null);
+        
 
         panel = new JPanel(new BorderLayout()) {
             public void paintComponent(Graphics g) {
@@ -110,7 +111,7 @@ public class WynikiPanel extends JDialog {
             if(top5Domyslny.size()>i) {
                 panelDomyslny.add(new JLabel((i + 1) + ". " + String.valueOf(top5Domyslny.get(i)), SwingConstants.CENTER), gbc2);
             } else {
-                panelDomyslny.add(new JLabel("",SwingConstants.CENTER),gbc2);
+                panelDomyslny.add(new JLabel(" ",SwingConstants.CENTER),gbc2);
             }
             gbc2.gridy++;
         }
@@ -130,7 +131,7 @@ public class WynikiPanel extends JDialog {
             if(top5Domyslny.size()>i) {
                 panelDomyslny.add(new JLabel((i + 1) + ". " + String.valueOf(top5Domyslny.get(i)), SwingConstants.CENTER), gbc2);
             } else {
-                panelDomyslny.add(new JLabel("",SwingConstants.CENTER),gbc2);
+                panelDomyslny.add(new JLabel(" ",SwingConstants.CENTER),gbc2);
             }
             gbc2.gridy++;
         }

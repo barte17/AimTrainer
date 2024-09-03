@@ -2,9 +2,6 @@
   <artifact type="jar" name="AimTrainer:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/AimTrainer_jar</output-path>
     <root id="archive" name="AimTrainer.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="AimTrainer" />
     </root>
   </artifact>
